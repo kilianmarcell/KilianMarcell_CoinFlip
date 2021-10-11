@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Fej", Toast.LENGTH_LONG).show();
         }
 
-        if (dobasokSzamlalo == 5) {
+        if (dobasokSzamlalo == 5 || gyozelemSzamlalo >= 3 || veresegSzamlalo >= 3) {
             AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
             if (gyozelemSzamlalo >= 3) {
                 alertBuilder.setTitle("Győzelem");
