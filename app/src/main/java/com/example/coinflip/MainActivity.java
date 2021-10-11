@@ -1,8 +1,10 @@
 package com.example.coinflip;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -64,6 +66,40 @@ public class MainActivity extends AppCompatActivity {
             }
             Toast.makeText(MainActivity.this, "Fej", Toast.LENGTH_LONG).show();
         }
+
+        if (dobasokSzamlalo == 5) {
+            AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+            if (gyozelemSzamlalo >= 3) {
+                alertBuilder.setTitle("Győzelem");
+            } else {
+                alertBuilder.setTitle("Vereség");
+            }
+            alertBuilder.setMessage("Szeretne új játékot játszani?");
+            alertBuilder.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+            alertBuilder.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    ujJatek();
+                    closeContextMenu();
+                }
+            });
+            alertBuilder.create().show();
+        }
+    }
+
+    private void ujJatek() {
+        dobasokSzamlalo = 0;
+        gyozelemSzamlalo = 0;
+        veresegSzamlalo = 0;
+        dobasokTextView.setText("Dobások: " + dobasokSzamlalo);
+        gyozelemTextView.setText("Győzelem: " + gyozelemSzamlalo);
+        veresegTextView.setText("Vereség: " + veresegSzamlalo);
+        kepFejIras.setImageResource(R.drawable.heads);
     }
 
     private void init() {
