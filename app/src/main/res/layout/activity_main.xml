@@ -23,6 +23,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/fejGomb"
             android:width="0dp"
             android:layout_weight="1"
             android:text="FEJ"
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"/>
 
         <Button
+            android:id="@+id/irasGomb"
             android:width="0dp"
             android:layout_weight="1"
             android:text="ÍRÁS"
