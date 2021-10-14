@@ -31,17 +31,19 @@ public class MainActivity extends AppCompatActivity {
         init();
 
         fejGomb.setOnClickListener((view) -> {
-            Sorsol(0);
-            dobasokTextView.setText("Dobások: " + dobasokSzamlalo);
-            gyozelemTextView.setText("Győzelem: " + gyozelemSzamlalo);
-            veresegTextView.setText("Vereség: " + veresegSzamlalo);
+            if (!(dobasokSzamlalo == 5 || gyozelemSzamlalo >= 3 || veresegSzamlalo >= 3)){
+                Sorsol(0);
+                dobasokTextView.setText("Dobások: " + dobasokSzamlalo);
+                gyozelemTextView.setText("Győzelem: " + gyozelemSzamlalo);
+                veresegTextView.setText("Vereség: " + veresegSzamlalo);}
         });
 
         irasGomb.setOnClickListener((view) -> {
-            Sorsol(1);
-            dobasokTextView.setText("Dobások: " + dobasokSzamlalo);
-            gyozelemTextView.setText("Győzelem: " + gyozelemSzamlalo);
-            veresegTextView.setText("Vereség: " + veresegSzamlalo);
+            if (!(dobasokSzamlalo == 5 || gyozelemSzamlalo >= 3 || veresegSzamlalo >= 3)){
+                Sorsol(1);
+                dobasokTextView.setText("Dobások: " + dobasokSzamlalo);
+                gyozelemTextView.setText("Győzelem: " + gyozelemSzamlalo);
+                veresegTextView.setText("Vereség: " + veresegSzamlalo);}
         });
     }
 
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     closeContextMenu();
                 }
             });
+            alertBuilder.setCancelable(false);
             alertBuilder.create().show();
         }
     }
